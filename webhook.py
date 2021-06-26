@@ -17,15 +17,7 @@ from flask import Flask
 from flask import request, make_response
 
 app = Flask(__name__)        
-
-@app.route('/')
-@app.route('/Home')
-def Home():
-    return "Hello"
 global name,Emailsend,OTP,emailUP
-
-
-
 
 # function displaying the text on facebook
 def make_text_response(message, platform="FACEBOOK"):
@@ -89,7 +81,7 @@ def process_request(req):
             print("Please provide correct employee id")  
             return {
                 "source": "webhook",
-                "fulfillmentMesages": [
+                "fulfillmentMessages": [
                     {
                         "text": {
                             "text": [
@@ -188,7 +180,7 @@ def process_request(req):
            else:
                return {
                 "source": "webhook",
-                "fulfillmentMesages": [
+                "fulfillmentMessages": [
                     {
                         "text": {
                             "text": [
@@ -201,7 +193,7 @@ def process_request(req):
                 ],
                             "outputContexts": [
                 {
-                    "name": "projects/formidable-deck-310515/agent/sesions/def406c3-fa02-085e-0a2d-7d17a766b7e6/contexts/Otp_Verify",
+                    "name": "projects/formidable-deck-310515/agent/sessions/def406c3-fa02-085e-0a2d-7d17a766b7e6/contexts/Otp_Verify",
                     "lifespanCount": 1
                 }
                 ]
@@ -271,7 +263,7 @@ def process_request(req):
            else:
                 return {
                 "source": "webhook",
-                "fulfillmentMesages": [
+                "fulfillmentMessages": [
                     {
                         "text": {
                             "text": [
@@ -333,7 +325,7 @@ def process_request(req):
                 print("Today is working day")
                 return {
                     "source": "webhook",
-                    "fulfillmentMesages": [
+                    "fulfillmentMessages": [
                         {
                             "text": {
                                 "text": [
@@ -351,7 +343,7 @@ def process_request(req):
                 print("Yes, today is holiday on the account of",holiday)   
                 return {
                 "source": "webhook",
-                "fulfillmentMesages": [
+                "fulfillmentMessages": [
                     {
                         "text": {
                             "text": [
@@ -379,7 +371,7 @@ def process_request(req):
                 print("To is working day")
                 return {
                     "source": "webhook",
-                    "fulfillmentMesages": [
+                    "fulfillmentMessages": [
                         {
                             "text": {
                                 "text": [
@@ -397,7 +389,7 @@ def process_request(req):
                 print("Yes, today is holiday on the account of",holiday)   
                 return {
                 "source": "webhook",
-                "fulfillmentMesages": [
+                "fulfillmentMessages": [
                     {
                         "text": {
                             "text": [
@@ -432,7 +424,7 @@ def process_request(req):
             designationemp = x[5]
             return {
                 "source": "webhook",
-                "fulfillmentMesages": [
+                "fulfillmentMessages": [
                     {
                         "text": {
                             "text": [
@@ -448,7 +440,7 @@ def process_request(req):
             print("no") 
             return {
                 "source": "webhook",
-                "fulfillmentMesages": [
+                "fulfillmentMessages": [
                     {
                         "text": {
                             "text": [
@@ -507,7 +499,7 @@ def process_request(req):
               break
             return {
                 "source": "webhook",
-                "fulfillmentMesages": [
+                "fulfillmentMessages": [
                     {
                         "text": {
                             "text": [
@@ -579,7 +571,7 @@ def process_request(req):
         traceback.print_exc()
         return {
                 "source": "webhook",
-                "fulfillmentMesages": [
+                "fulfillmentMessages": [
                     {
                         "text": {
                             "text": [
