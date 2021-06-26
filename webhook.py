@@ -411,24 +411,30 @@ def process_request(req):
            results = collection.find({'Name': { '$regex': emp_name, '$options': 'i' }})
            nam = list(results)
            var =  bool(nam)
+           lst=[]
+           cc=""
            if var==True:
             for result in nam:
-             print(result)
+                result_copy = result.copy()
+                lst.append(result_copy)
+                print(lst)
+            for k in lst:
+                i = k.values()
+                x = list(i)
+                empname = x[1]
+                contactemp = x[3]
+                emailemp = x[4]
+                designationemp = x[5]
+                cc = cc + "Employee name: {}\nContact: {}\nEmail: {}\nDesignation: {}\n\n".format(empname,contactemp,emailemp,designationemp)
+                print(cc)    
             
-            print("yes")
-            i = result.values()
-            x = list(i)
-            empname = x[1]
-            contactemp = x[3]
-            emailemp = x[4]
-            designationemp = x[5]
             return {
                 "source": "webhook",
                 "fulfillmentMessages": [
                     {
                         "text": {
                             "text": [
-                                "Employee name: {}\n  Contact: {}\n  Email: {}\n  Designation: {}".format(empname,contactemp,emailemp,designationemp)
+                                cc
                                   
                             ]
                         },
@@ -474,26 +480,22 @@ def process_request(req):
               if s[0:2]=="01":
                   print("January")
               elif s[0:2]=="03":
-                  print("January")
+                  print("March")
               elif s[0:2]=="07":
                    A = "July" 
-              elif s[0:2]=="01":
+              elif s[0:2]=="04":
                   print("April") 
-              elif s[0:2]=="01":
-                  print("January") 
-              elif s[0:2]=="01":
-                  print("January") 
-              elif s[0:2]=="01":
-                  print("January") 
-              elif s[0:2]=="01":
-                  print("January") 
-              elif s[0:2]=="01":
-                  print("January") 
-              elif s[0:2]=="01":
-                  print("January") 
-              elif s[0:2]=="01":
-                  print("January") 
-              D = A + "/" + s[2:4] + "/" + s[4:8]
+              elif s[0:2]=="05":
+                  print("May") 
+              elif s[0:2]=="08":
+                  print("August") 
+              elif s[0:2]=="10":
+                  print("October") 
+              elif s[0:2]=="11":
+                  print("November") 
+              elif s[0:2]=="12":
+                  print("December") 
+              D = s[2:4] + " " + A + " " + s[4:8]
                        
               print("Next holiday is on {} on account of {}".format(D,values_list[i]))
               break
