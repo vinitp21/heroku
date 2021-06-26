@@ -16,7 +16,12 @@ from flask import Flask
 
 from flask import request, make_response
 
-app = Flask(__name__)                                                                                           
+app = Flask(__name__)        
+
+@app.route('/')
+@app.route('/Home')
+def Home():
+    return "Hello"
 global name,Emailsend,OTP,emailUP
 
 
@@ -41,6 +46,7 @@ def show(information, information_previous):
         information_previous.append(information_sample)
         information.remove(information_sample)
     return information_sample
+    
 
 
 @app.route('/webhook', methods=['POST'])
