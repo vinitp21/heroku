@@ -19,7 +19,7 @@ from flask import request, make_response
 app = Flask(__name__)        
 global name,Emailsend,OTP,emailUP
 
-# function displaying the text on facebook
+
 def make_text_response(message, platform="SLACK"):
     return {
         "text": {
@@ -124,8 +124,8 @@ def process_request(req):
            
            
 
-           sender_addres = 'son.pari2314@gmail.com'
-           sender_pas = 'Vinit@123'
+           sender_addres = 'contact@juppiterailabs'
+           sender_pas = 'Contact@123'
             
 
            reciver_mail = Emailsend
@@ -154,7 +154,7 @@ def process_request(req):
                 """.format(name, OTP)
            mesage.attach(MIMEText(text, 'plain'))
            mesage.attach(MIMEText(html, 'html'))
-           s = smtplib.SMTP('smtp.gmail.com', 587)
+           s = smtplib.SMTP('smtp.hostinger.com', 587)
            s.starttls()
            s.login(sender_addres, sender_pas)
            text = mesage.as_string()
@@ -206,8 +206,8 @@ def process_request(req):
             
             
             global li, lt
-            sender_addres = 'son.pari2314@gmail.com'
-            sender_pas = 'Vinit@123'
+            sender_addres = 'contact@juppiterailabs'
+            sender_pas = 'Contact@123'
             
 
             reciver_mail = "vinitpatil874@gmail.com"
@@ -238,7 +238,7 @@ def process_request(req):
                     """.format(name, Emailsend, reasn)
             mesage.attach(MIMEText(text, 'plain'))
             mesage.attach(MIMEText(html, 'html'))
-            s = smtplib.SMTP('smtp.gmail.com', 587)
+            s = smtplib.SMTP('smtp.hostinger.com', 587)
             s.starttls()
             s.login(sender_addres, sender_pas)
             text = mesage.as_string()
@@ -526,8 +526,8 @@ def process_request(req):
             print(Dept)
             
             global li, lt
-            sender_addres = 'son.pari2314@gmail.com'
-            sender_pas = 'Vinit@123'
+            sender_addres = 'contact@juppiterailabs'
+            sender_pas = 'Contact@123'
             
 
             reciver_mail = "vinitpatil874@gmail.com"
@@ -557,7 +557,7 @@ def process_request(req):
                     """.format(Dept,Raise)
             mesage.attach(MIMEText(text, 'plain'))
             mesage.attach(MIMEText(html, 'html'))
-            s = smtplib.SMTP('smtp.gmail.com', 587)
+            s = smtplib.SMTP('smtp.hostinger.com', 587)
             s.starttls()
             s.login(sender_addres, sender_pas)
             text = mesage.as_string()
