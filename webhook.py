@@ -124,7 +124,7 @@ def process_request(req):
            
            
 
-           sender_addres = 'contact@juppiterailabs'
+           sender_addres = 'contact@juppiterailabs.com'
            sender_pas = 'Contact@123'
             
 
@@ -206,7 +206,7 @@ def process_request(req):
             
             
             global li, lt
-            sender_addres = 'contact@juppiterailabs'
+            sender_addres = 'contact@juppiterailabs.com'
             sender_pas = 'Contact@123'
             
 
@@ -526,7 +526,7 @@ def process_request(req):
             print(Dept)
             
             global li, lt
-            sender_addres = 'contact@juppiterailabs'
+            sender_addres = 'contact@juppiterailabs.com'
             sender_pas = 'Contact@123'
             
 
