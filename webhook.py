@@ -20,7 +20,7 @@ app = Flask(__name__)
 global name,Emailsend,OTP,emailUP
 
 # function displaying the text on facebook
-def make_text_response(message, platform="FACEBOOK"):
+def make_text_response(message, platform="SLACK"):
     return {
         "text": {
             "text": [
