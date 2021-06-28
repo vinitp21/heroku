@@ -175,7 +175,7 @@ def process_request(req):
            x = list(i)
            OTP_cnf = x[6]
            print(OTP_cnf)
-           if OTP==OTP_verify:
+           if OTP_cnf==OTP_verify:
                print("Thankyou") 
            else:
                return {
