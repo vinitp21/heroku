@@ -109,95 +109,95 @@ def process_request(req):
                 name = x[1]
 
 
-        #    global OTP
-           digits = "0123456789"
-           OTP = ""
+        # #    global OTP
+        #    digits = "0123456789"
+        #    OTP = ""
 
-           for i in range(4):
-               OTP += digits[math.floor(random.random() * 10)]
-               print(OTP)
-           cluster = MongoClient("mongodb+srv://testing:Vinit123@cluster0.y9z3u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-           db = cluster["employee_name"]
-           collection = db["employee"] 
-           results = collection.update_one({"_id": empid},{"$set":{"OTP": OTP}})
-           print(results)    
+        #    for i in range(4):
+        #        OTP += digits[math.floor(random.random() * 10)]
+        #        print(OTP)
+        #    cluster = MongoClient("mongodb+srv://testing:Vinit123@cluster0.y9z3u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        #    db = cluster["employee_name"]
+        #    collection = db["employee"] 
+        #    results = collection.update_one({"_id": empid},{"$set":{"OTP": OTP}})
+        #    print(results)    
            
            
 
-           sender_addres = 'contact@juppiterailabs.com'
-           sender_pas = 'Contact@123'
+        #    sender_addres = 'contact@juppiterailabs.com'
+        #    sender_pas = 'Contact@123'
             
 
-           reciver_mail = Emailsend
+        #    reciver_mail = Emailsend
 
-           print(reciver_mail)
+        #    print(reciver_mail)
 
-           mesage = MIMEMultipart()
-           mesage['From'] = sender_addres
-           mesage['To'] = reciver_mail
-           mesage['Subject'] = 'Mail using python'
-           text = " "
-           html = """\
-                <html>
-                    <head></head>
-                    <body>
-                    <p>Hi {}, your OTP for verification is {} <br>
-                        <br>
+        #    mesage = MIMEMultipart()
+        #    mesage['From'] = sender_addres
+        #    mesage['To'] = reciver_mail
+        #    mesage['Subject'] = 'Mail using python'
+        #    text = " "
+        #    html = """\
+        #         <html>
+        #             <head></head>
+        #             <body>
+        #             <p>Hi {}, your OTP for verification is {} <br>
+        #                 <br>
                             
-                        <br>
-                            Regards,<br>
-                            Morphi <br>
-                            HR asistant
-                    </p>
-                    </body>
-                </html>
-                """.format(name, OTP)
-           mesage.attach(MIMEText(text, 'plain'))
-           mesage.attach(MIMEText(html, 'html'))
-           s = smtplib.SMTP('smtp.hostinger.com', 587)
-           s.starttls()
-           s.login(sender_addres, sender_pas)
-           text = mesage.as_string()
-           s.sendmail(sender_addres, reciver_mail, text)
-           s.quit()
-           print('Mail Sent')
+        #                 <br>
+        #                     Regards,<br>
+        #                     Morphi <br>
+        #                     HR asistant
+        #             </p>
+        #             </body>
+        #         </html>
+        #         """.format(name, OTP)
+        #    mesage.attach(MIMEText(text, 'plain'))
+        #    mesage.attach(MIMEText(html, 'html'))
+        #    s = smtplib.SMTP('smtp.hostinger.com', 587)
+        #    s.starttls()
+        #    s.login(sender_addres, sender_pas)
+        #    text = mesage.as_string()
+        #    s.sendmail(sender_addres, reciver_mail, text)
+        #    s.quit()
+        #    print('Mail Sent')
 
-        if action =="OTP_verify":
-           result = req.get("queryResult").get("queryText")
-           OTP_verify = result
-           print(OTP_verify)
-           cluster = MongoClient("mongodb+srv://testing:Vinit123@cluster0.y9z3u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-           db = cluster["employee_name"]
-           collection = db["employee"] 
-           results = collection.find_one({"_id": empid})
-           print(results)
-           i = results.values()
-           x = list(i)
-           OTP_cnf = x[6]
-           print(OTP_cnf)
-           if OTP_cnf==OTP_verify:
-               print("Thankyou") 
-           else:
-               return {
-                "source": "webhook",
-                "fulfillmentMessages": [
-                    {
-                        "text": {
-                            "text": [
-                                "Invalid OTP, Please enter the correct one"
-                            ]
-                        },
+        # if action =="OTP_verify":
+        #    result = req.get("queryResult").get("queryText")
+        #    OTP_verify = result
+        #    print(OTP_verify)
+        #    cluster = MongoClient("mongodb+srv://testing:Vinit123@cluster0.y9z3u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        #    db = cluster["employee_name"]
+        #    collection = db["employee"] 
+        #    results = collection.find_one({"_id": empid})
+        #    print(results)
+        #    i = results.values()
+        #    x = list(i)
+        #    OTP_cnf = x[6]
+        #    print(OTP_cnf)
+        #    if OTP_cnf==OTP_verify:
+        #        print("Thankyou") 
+        #    else:
+        #        return {
+        #         "source": "webhook",
+        #         "fulfillmentMessages": [
+        #             {
+        #                 "text": {
+        #                     "text": [
+        #                         "Invalid OTP, Please enter the correct one"
+        #                     ]
+        #                 },
                         
-                        "platform": "SLACK"
-                    }
-                ],
-                            "outputContexts": [
-                {
-                    "name": "projects/formidable-deck-310515/agent/sessions/def406c3-fa02-085e-0a2d-7d17a766b7e6/contexts/Otp_Verify",
-                    "lifespanCount": 1
-                }
-                ]
-            }
+        #                 "platform": "SLACK"
+        #             }
+        #         ],
+        #                     "outputContexts": [
+        #         {
+        #             "name": "projects/formidable-deck-310515/agent/sessions/def406c3-fa02-085e-0a2d-7d17a766b7e6/contexts/Otp_Verify",
+        #             "lifespanCount": 1
+        #         }
+        #         ]
+        #     }
             
         if action == "reasonAL":
             result = req.get("queryResult").get("queryText")
