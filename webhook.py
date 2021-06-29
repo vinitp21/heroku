@@ -94,7 +94,7 @@ def process_request(req):
                 ],
                             "outputContexts": [
                 {
-                    "name": "projects/formidable-deck-310515/agent/sesions/def406c3-fa02-085e-0a2d-7d17a766b7e6/contexts/welcome_intent2",
+                    "name": "projects/formidable-deck-310515/agent/sessions/def406c3-fa02-085e-0a2d-7d17a766b7e6/contexts/welcome_intent2",
                     "lifespanCount": 1
                 }
                 ]
