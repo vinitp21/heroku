@@ -72,7 +72,7 @@ def process_request(req):
            empid = result
            print(empid)   
            
-           cluster = MongoClient("mongodb+srv://testing:Vinit123@cluster0.y9z3u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+           cluster = MongoClient("mongodb+srv://EmployeeJuppiter:Juppiter123@cluster0.ah83l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
            db = cluster["employee_name"]
            collection = db["employee"] 
            results = collection.find_one({"_id":empid})
@@ -116,7 +116,7 @@ def process_request(req):
         #    for i in range(4):
         #        OTP += digits[math.floor(random.random() * 10)]
         #        print(OTP)
-        #    cluster = MongoClient("mongodb+srv://testing:Vinit123@cluster0.y9z3u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        #    cluster = MongoClient("mongodb+srv://EmployeeJuppiter:Juppiter123@cluster0.ah83l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
         #    db = cluster["employee_name"]
         #    collection = db["employee"] 
         #    results = collection.update_one({"_id": empid},{"$set":{"OTP": OTP}})
@@ -166,7 +166,7 @@ def process_request(req):
         #    result = req.get("queryResult").get("queryText")
         #    OTP_verify = result
         #    print(OTP_verify)
-        #    cluster = MongoClient("mongodb+srv://testing:Vinit123@cluster0.y9z3u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        #    cluster = MongoClient("mongodb+srv://EmployeeJuppiter:Juppiter123@cluster0.ah83l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
         #    db = cluster["employee_name"]
         #    collection = db["employee"] 
         #    results = collection.find_one({"_id": empid})
@@ -245,7 +245,7 @@ def process_request(req):
             s.sendmail(sender_addres, reciver_mail, text)
             s.quit()
             print('Mail Sent')
-            cluster = MongoClient("mongodb+srv://testing:Vinit123@cluster0.y9z3u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+            cluster = MongoClient("mongodb+srv://EmployeeJuppiter:Juppiter123@cluster0.ah83l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
             db = cluster["employee_name"]
             collection = db["employee"] 
             results = collection.update_one({"_id": empid},{"$inc":{"Number of leave": 1
@@ -282,7 +282,7 @@ def process_request(req):
                     ]
                   }    
           
-           cluster = MongoClient("mongodb+srv://testing:Vinit123@cluster0.y9z3u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+           cluster = MongoClient("mongodb+srv://EmployeeJuppiter:Juppiter123@cluster0.ah83l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
            db = cluster["employee_name"]
            collection = db["employee"] 
            results = collection.update_one({"_id": empid},{"$set":{"Email": emailUP}})
@@ -292,7 +292,7 @@ def process_request(req):
             result = req.get("queryResult").get("queryText")
             contactUP = result
             print(contactUP)
-            cluster = MongoClient("mongodb+srv://testing:Vinit123@cluster0.y9z3u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+            cluster = MongoClient("mongodb+srv://EmployeeJuppiter:Juppiter123@cluster0.ah83l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
             db = cluster["employee_name"]
             collection = db["employee"] 
             results = collection.update_one({"_id":empid},{"$set":{"Contact No": int(contactUP)}})
@@ -315,7 +315,7 @@ def process_request(req):
             newformat = datetimeobject.strftime('%m%d%Y')
             print(newformat)
 
-            cluster = MongoClient("mongodb+srv://testing:Vinit123@cluster0.y9z3u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+            cluster = MongoClient("mongodb+srv://EmployeeJuppiter:Juppiter123@cluster0.ah83l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
             db = cluster["employee_name"]
             collection = db["holiday"]
             results = collection.find_one({"Date":newformat})
@@ -361,7 +361,7 @@ def process_request(req):
            datetimeobject = datetime.strptime(tomorrow1,'%Y-%m-%d')
            newformat = datetimeobject.strftime('%m%d%Y')
            print(newformat)
-           cluster = MongoClient("mongodb+srv://testing:Vinit123@cluster0.y9z3u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+           cluster = MongoClient("mongodb+srv://EmployeeJuppiter:Juppiter123@cluster0.ah83l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
            db = cluster["employee_name"]
            collection = db["holiday"]
            results = collection.find_one({"Date":newformat})
@@ -405,7 +405,7 @@ def process_request(req):
            result = req.get("queryResult").get("queryText")
            emp_name = result 
            print(emp_name)
-           cluster = MongoClient("mongodb+srv://testing:Vinit123@cluster0.y9z3u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+           cluster = MongoClient("mongodb+srv://EmployeeJuppiter:Juppiter123@cluster0.ah83l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
            db = cluster["employee_name"]
            collection = db["employee"] 
            results = collection.find({'Name': { '$regex': emp_name, '$options': 'i' }})
